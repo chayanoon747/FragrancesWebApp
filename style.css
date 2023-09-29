@@ -1,21 +1,25 @@
 header {
-    padding: 20px;
+    padding: 1%;
     background-color: #FFFFFF;
     color: #000000;
     font-family: 'Zen Antique Soft', serif;
-    font-size: 22px;
-    font-style: normal;
+    font-size: 60px;
     border: 2px solid red;
     display: flex;
-    flex-direction: row;
     
 }
 
-header h1 {
-    display: flex;
-    border: 2px solid orange;
-    margin: auto;
+.header-content {
+    flex-grow: 1;
     text-align: center;
+    border: 2px solid orange;
+    justify-content: center;
+}
+
+.header-content p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 header div{
@@ -26,6 +30,10 @@ header div{
 
 header div a svg{
     padding: 10px;
+}
+
+header div a:hover{
+    color: #007BFF;
 }
 
 body {
@@ -65,9 +73,10 @@ body {
 
 .banner {
     width: 100%; 
-    height: 500px; 
+    height: 100%; 
     overflow: hidden; 
     position: relative; 
+    
 }
 
 .banner img {
@@ -75,34 +84,6 @@ body {
     height: 100%; 
     object-fit: contain;
     margin-top: 50px;
-    transition: opacity 0.5s ease;
-}
-
-.banner img.hidden {
-    opacity: 0;
-}
-
-.arrow-icon {
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #007BFF;
-    z-index: 2;
-    transition: color 0.3s ease;
-}
-
-#arrow-left {
-    left: 20px;
-}
-
-#arrow-right {
-    right: 20px;
-}
-
-.arrow-icon:hover {
-    color: #FF5733;
 }
 
 .tag-menu {
