@@ -90,3 +90,91 @@ body {
     border: 2px solid yellow;
     height: 100px;
 }
+
+footer {
+    width: 100%;
+    height: 300px;
+    background-color: #14213D;
+}
+
+.block-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.textContentLeft {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.textContentLeft .header{
+    font-family: 'Zen Antique Soft', serif;
+    margin-bottom: 10;
+    color: white;
+    font-size: 16px;
+}
+
+.textContentLeft .body {
+    margin-bottom: 0;
+    color: white;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 14px;
+}
+
+.block-right {
+    display: flex;
+    flex-direction: row;
+    margin-right: 100px;
+}
+
+.textContentRight {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.div-sign-up {
+    margin-bottom: 50px;
+}
+
+.div-sign-up input {
+    width: 100%;
+    border: none; 
+    border-bottom: 1px solid #FFFFFF; 
+    outline: none;
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.div-sign-up input::placeholder {
+    color: #999;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 16px;
+}
+
+.sign-up{
+    font-family: 'Zen Antique Soft', serif;
+    color: white;
+}
+
+.follow-us {
+    font-family: 'Zen Antique Soft', serif;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.div-icon-footer {
+    
+    display: flex;
+    align-items: center;
+}
+
+.div-icon-footer svg {
+    margin-right: 10px;
+}
