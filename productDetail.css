@@ -1,0 +1,229 @@
+header {
+    padding: 1%;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 60px;
+    border: 2px solid red;
+    display: flex;
+    
+}
+
+.header-content {
+    flex-grow: 1;
+    text-align: center;
+    border: 2px solid orange;
+    justify-content: center;
+}
+
+.header-content p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header div{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid pink;
+}
+
+header div a svg{
+    padding: 10px;
+}
+
+header div a:hover{
+    color: #007BFF;
+}
+
+body {
+    font-family: 'Zen Antique Soft', serif;
+    margin: 0 60px 20px 60px;
+    padding: 0;
+}
+
+.icon-header {
+    display: flex;
+    align-items: center; 
+    text-decoration: none; 
+    color: inherit; 
+    font-size: 14px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    font-family: 'Zen Antique Soft', serif;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+    
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    margin: 0 70px;
+}
+
+.menu a:hover {
+    color: #007BFF;
+}
+
+.tag-menu p {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 12px;
+}
+
+.banner {
+    float: left;
+    width: 50%;
+}
+
+.banner img {
+    margin-left: 2%;
+}
+
+.product-detail {
+    float: right;
+    width: 50%;
+    margin-top: 10%;
+}
+
+.product-detail p {
+    font-family: 'Zen Antique Soft', serif;
+    margin: 0;
+}
+
+.product-detail .collection {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+
+.product-detail .name {
+    font-size: 40px;
+    margin: 0 0 50px 0;
+}
+
+.product-detail .size {
+    font-size: 20px;
+}
+
+.size-button {
+    font-family: 'Zen Antique Soft', serif;
+    border: 2px solid lightgray; /* กำหนดเส้นขอบ 1px */
+    padding: 10px 30px; /* กำหนดขนาดของปุ่ม */
+    margin: 5px 5px 0 0;
+    cursor: pointer;
+    background-color: #FFFFFF;
+}
+
+.size-button.clicked {
+    font-family: 'Zen Antique Soft', serif;
+    border: 2px solid black; /* เปลี่ยนเส้นขอบเป็น 3px หลังคลิก */
+}
+
+.div-size-btn {
+    margin: 0 0 30px 0;
+}
+
+.purchase-button {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 20px;
+    width: 45%;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #14213D;
+    color: #FFFFFF;
+}
+
+footer {
+    clear: both;
+    width: 100%;
+    height: 300px;
+    background-color: #14213D;
+}
+
+.block-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.block-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.textContentLeft {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.textContentLeft .header{
+    font-family: 'Zen Antique Soft', serif;
+    margin-bottom: 10;
+    color: white;
+    font-size: 16px;
+}
+
+.textContentLeft .body {
+    margin-bottom: 0;
+    color: white;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 14px;
+}
+
+.block-right {
+    display: flex;
+    flex-direction: row;
+    margin-right: 100px;
+}
+
+.textContentRight {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+.div-sign-up {
+    margin-bottom: 50px;
+}
+
+.div-sign-up input {
+    width: 100%;
+    border: none; 
+    border-bottom: 1px solid #FFFFFF; 
+    outline: none;
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.div-sign-up input::placeholder {
+    color: #999;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 16px;
+}
+
+.sign-up{
+    font-family: 'Zen Antique Soft', serif;
+    color: white;
+}
+
+.follow-us {
+    font-family: 'Zen Antique Soft', serif;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.div-icon-footer {
+    
+    display: flex;
+    align-items: center;
+}
+
+.div-icon-footer svg {
+    margin-right: 10px;
+}
