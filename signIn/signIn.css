@@ -1,0 +1,72 @@
+body {
+    background-image: url('https://cdn.discordapp.com/attachments/1157236550548062248/1160172354916323389/TNs3fx4Wbgpjg8KF2YS9Pn.png?ex=6533b1b4&is=65213cb4&hm=f78ebe97eb2f6ea7baeafc05623490ae3dfb6e34f31ef5cf5a79f9f7e2d088f5&');
+    background-size: cover; /* ปรับขนาดภาพให้ครอบคลุมพื้นที่ body ทั้งหมด */
+    background-repeat: no-repeat; /* ไม่ซ้ำภาพ */
+    background-attachment: fixed; /* ทำให้พื้นหลังปรากฏตามที่เลื่อนหน้าเว็บ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    width: 400px;
+    padding: 30px 50px 30px 50px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Zen Antique Soft', serif;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Zen Antique Soft', serif;
+}
+.form-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.btn-signin {
+    width: 100%;
+    padding: 10px;
+    background-color: #14213D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Zen Antique Soft', serif;
+}
+
+.footer {
+    margin-top: 10px;
+    width: 400px;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    text-align: center;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 14px;
+}
+
+.footer-content a {
+    margin-left: 5px;
+    color:#14213D;
+    cursor: pointer;
+    font-weight: bold;
+}
