@@ -1,7 +1,18 @@
-const menuItems = document.querySelectorAll('.menu a');
-    menuItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // ทำสิ่งที่คุณต้องการเมื่อคลิกที่เมนู
-            alert(`คุณคลิกที่ ${item.textContent}`);
-        });
+import { auth } from '../firebase/auth.js'
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+signIn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+  
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential)=>{
+      const user = userCredential.user;
+      alert('Sign in successfully');
+      window.location.href = './home/home.html';
+    })
+    .catch((error)=>{
+      alert(error.message);
     });
+  });
