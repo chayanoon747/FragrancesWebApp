@@ -16,9 +16,17 @@ header {
     justify-content: center;
 }
 
+.header-content a {
+    color: #14213D;
+}
+.header-content a:hover {
+    color: #14213D;
+}
+
 .header-content p {
     position: absolute;
     left: 50%;
+    top: 0;
     transform: translateX(-50%);
 }
 
@@ -113,7 +121,7 @@ footer {
     margin: 30px;
 }
 
-.textContentLeft .header{
+.textContentLeft .header-text{
     font-family: 'Zen Antique Soft', serif;
     margin-bottom: 10;
     color: white;
@@ -170,7 +178,6 @@ footer {
 }
 
 .div-icon-footer {
-    
     display: flex;
     align-items: center;
 }

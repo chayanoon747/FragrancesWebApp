@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Fragrances Web App</title>
-        <link rel="stylesheet" href="productDetail.css">
+        <link rel="stylesheet" href="collection.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
     </head>
     <body>
@@ -36,35 +36,37 @@
         </header>
 
         <div class="menu">
-            <a href="./productDetail.html">FRAGRANCES</a>
-            <a href="../collection/collection.html">GIFTING</a>
+            <a href="../productDetail/productDetail.html">FRAGRANCES</a>
+            <a href="./collection.html">GIFTING</a>
             <a href="#">STORES</a>
             <a href="#">OUR HOUSE</a>
             <a href="#">SUMMER ESSENTIALS</a>
         </div>
 
         <div class="tag-menu">
-            <p>FRAGRANCES > Collections > Signatures of the sun</p>
+            <p>FRAGRANCES > Collections</p>
         </div>
 
-        <div class="photo-image">
-            <img width="700" height="700" src="" alt="product-image" id="product-image">
+        <div class="banner">
+            <img width="50%" height="400" src="https://cdn.discordapp.com/attachments/1161963005710450829/1161963049796763738/Fragrances-collections.png" alt="collection-image" id="banner-image">
+            <p>COLLECTIONS</p>
         </div>
-        <div class="product-detail">
-            <div class="type-collection">
-                <p class="type" id="product-type">Loading...</p>
-                <p class="hyphen"> - </p>
-                <p class="collection" id="product-collection">Loading...</p>
-            </div>
-            
-            <p class="name" id="product-name">Loading...</p>
-            <p class="size" >Choose your Size</p>
-            <div class="div-size-btn">
-                <button class="size-button" id="button1">50ml</button>
-                <button class="size-button" id="button2">75ml</button>
-                <button class="size-button" id="product-size">Loading...</button>
-            </div>
-            <button class="purchase-button" id="button4">PURCHASE</button>
+
+        <div class="collection-detail">
+            <hr/><p class="header-text-collection">COLONIA COLLECTION</p>
+            <div class="grid-container" id="product-grid-1"></div>
+
+            <hr/><p class="header-text-collection">SIGNATURES OF THE SUN</p>
+            <div class="grid-container" id="product-grid-2"></div>
+
+            <hr/><p class="header-text-collection">BLU MEDITERRANEO</p>
+            <div class="grid-container" id="product-grid-3"> </div>
+
+            <hr/><p class="header-text-collection">NOTE DI COLONIA</p>
+            <div class="grid-container" id="product-grid-4"></div>
+
+            <hr/><p class="header-text-collection">LE NOBILI</p>
+            <div class="grid-container" id="product-grid-5"></div>
         </div>
         
 
@@ -112,7 +114,7 @@
                 </div>
             </div>
         </footer>
-        <script type="module" src="productDetail.js"></script>
+        <script type="module" src="collection.js"></script>
     </body>
 
     
