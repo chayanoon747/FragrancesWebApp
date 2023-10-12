@@ -1,5 +1,25 @@
-import { auth } from '../firebase/auth.js'
+import { auth, app } from '../firebase/connect.js'
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import {getFirestore, collection, doc, setDoc} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+
+const db = getFirestore(app)
+const usersColl = collection(db, "users")
+
+const updateUserData = (user, firstname, lastname, email) => {
+  setDoc(doc(usersColl, user.uid), {
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+  })
+  .then(() => {
+      alert('Update data successfully');
+      alert(`User created ${user.uid}`);
+      window.location.href = '../index.html';
+  })
+  .catch((error) => {
+      alert(error.message);
+  });
+};
 
 signUp.addEventListener('click',(e)=>{
     e.preventDefault(); // ป้องกันการโหลดหน้าใหม่เมื่อผู้ใช้กดปุ่ม "Sign Up"
@@ -11,10 +31,12 @@ signUp.addEventListener('click',(e)=>{
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential)=>{
       const user = userCredential.user;
-      alert('User created');
-      window.location.href = '../index.html';
+      updateUserData(user, firstname, lastname, email);
+      
     })
     .catch((error)=>{
       alert(error.message);
     });
+
+    
 });

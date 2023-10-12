@@ -1,4 +1,4 @@
-import { auth } from '../firebase/auth.js'
+import { auth } from '../firebase/connect.js'
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
 signIn.addEventListener('click',(e)=>{
