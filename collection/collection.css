@@ -110,15 +110,18 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ที่มีขนาดเท่ากัน */
-    gap: 10px; /* ระยะห่างระหว่างข้อมูลสินค้า */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; 
 }
   
 .product {
-    border: 1px solid #ccc; /* เพิ่มเส้นขอบรอบข้อมูลสินค้า */
     padding: 20px;
     text-align: center;
     margin: 10px;
+}
+
+.product:hover {
+    border: 1px solid #ccc; 
 }
 
 .product img {
