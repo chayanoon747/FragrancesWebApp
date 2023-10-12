@@ -5,9 +5,13 @@ import {getFirestore, collection, doc, getDoc} from 'https://www.gstatic.com/fir
 const db = getFirestore(app)
 const productsColl = collection(db, "products")
 
-const fetchAndDisplayData = async()=>{
+const urlParams = new URLSearchParams(window.location.search);
+const productUId = urlParams.get('id');
+
+export const productDetail = async(productUID)=>{
     try {
-        const productRef = doc(productsColl, 'WvWvI9WXBARW9V7Z3CNF');
+        
+        const productRef = doc(productsColl, productUID);
     
         const productSnapshot = await getDoc(productRef);
     
@@ -15,6 +19,8 @@ const fetchAndDisplayData = async()=>{
             const productData = productSnapshot.data();
             const { photoURL, collection, name, size, type } = productData;
             // Display the data in the HTML elements
+            const collectionPath = collection.slice(0, 1) + collection.slice(1, -1).toLowerCase() + collection.slice(-1).toLowerCase();
+            document.getElementById('product-collection-path').textContent = 'FRAGRANCES > Collections >' + collectionPath;
             const image = document.getElementById('product-image');
             image.src = photoURL;
             document.getElementById('product-type').textContent = type;
@@ -30,7 +36,10 @@ const fetchAndDisplayData = async()=>{
     }
 }
 
-fetchAndDisplayData()
+if(productUId){
+    productDetail(productUId)
+}
+
 
 const sizeButtons = document.querySelectorAll('.size-button');
 sizeButtons.forEach(button => {

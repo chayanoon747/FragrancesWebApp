@@ -1,6 +1,7 @@
 import { auth, app } from '../firebase/connect.js'
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import {getFirestore, collection, doc, getDocs, query, where} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+import {productDetail} from '../productDetail/productDetail.js'
 
 const db = getFirestore(app)
 const productsColl = collection(db, "products")
@@ -12,23 +13,27 @@ const fetchAndDisplayData1 = async()=>{
     
         querySnapshot.forEach((productDoc) => {
             if (productDoc.exists()) {
-              const productData = productDoc.data();
-              const { photoURL, name, type } = productData;
+                const productData = productDoc.data();
+                const { photoURL, name, type } = productData;
       
-              // สร้าง HTML element และแสดงข้อมูลสินค้า
-              const productElement = document.createElement('div');
-              productElement.classList.add('product');
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
       
-              productElement.innerHTML = `
-                <img src="${photoURL}" alt="Product Image">
-                <p class="product-type">${type}</p>
-                <p class="product-name">${name}</p>
-              `;
+                productElement.innerHTML = `
+                    <img src="${photoURL}" alt="Product Image">
+                    <p class="product-type">${type}</p>
+                    <p class="product-name">${name}</p>
+                `;
+
+                productElement.addEventListener('click', () => {
+                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    window.location.href = productDetailURL;
+                });
       
-              const productGrid = document.getElementById('product-grid-1');
-              productGrid.appendChild(productElement);
+                const productGrid = document.getElementById('product-grid-1');
+                productGrid.appendChild(productElement);
             }
-          });
+        });
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -40,23 +45,27 @@ const fetchAndDisplayData2 = async()=>{
     
         querySnapshot.forEach((productDoc) => {
             if (productDoc.exists()) {
-              const productData = productDoc.data();
-              const { photoURL, name, type } = productData;
+                const productData = productDoc.data();
+                const { photoURL, name, type } = productData;
       
-              // สร้าง HTML element และแสดงข้อมูลสินค้า
-              const productElement = document.createElement('div');
-              productElement.classList.add('product');
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
       
-              productElement.innerHTML = `
-                <img src="${photoURL}" alt="Product Image">
-                <p class="product-type">${type}</p>
-                <p class="product-name">${name}</p>
-              `;
+                productElement.innerHTML = `
+                    <img src="${photoURL}" alt="Product Image">
+                    <p class="product-type">${type}</p>
+                    <p class="product-name">${name}</p>
+                `;
+
+                productElement.addEventListener('click', () => {
+                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    window.location.href = productDetailURL;
+                });
       
-              const productGrid = document.getElementById('product-grid-2');
-              productGrid.appendChild(productElement);
+                const productGrid = document.getElementById('product-grid-2');
+                productGrid.appendChild(productElement);
             }
-          });
+        });
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -69,23 +78,27 @@ const fetchAndDisplayData3 = async()=>{
     
         querySnapshot.forEach((productDoc) => {
             if (productDoc.exists()) {
-              const productData = productDoc.data();
-              const { photoURL, name, type } = productData;
+                const productData = productDoc.data();
+                const { photoURL, name, type } = productData;
       
-              // สร้าง HTML element และแสดงข้อมูลสินค้า
-              const productElement = document.createElement('div');
-              productElement.classList.add('product');
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
       
-              productElement.innerHTML = `
-                <img src="${photoURL}" alt="Product Image">
-                <p class="product-type">${type}</p>
-                <p class="product-name">${name}</p>
-              `;
+                productElement.innerHTML = `
+                    <img src="${photoURL}" alt="Product Image">
+                    <p class="product-type">${type}</p>
+                    <p class="product-name">${name}</p>
+                `;
+
+                productElement.addEventListener('click', () => {
+                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    window.location.href = productDetailURL;
+                });
       
-              const productGrid = document.getElementById('product-grid-3');
-              productGrid.appendChild(productElement);
+                const productGrid = document.getElementById('product-grid-3');
+                productGrid.appendChild(productElement);
             }
-          });
+        });
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -98,23 +111,27 @@ const fetchAndDisplayData4 = async()=>{
     
         querySnapshot.forEach((productDoc) => {
             if (productDoc.exists()) {
-              const productData = productDoc.data();
-              const { photoURL, name, type } = productData;
+                const productData = productDoc.data();
+                const { photoURL, name, type } = productData;
       
-              // สร้าง HTML element และแสดงข้อมูลสินค้า
-              const productElement = document.createElement('div');
-              productElement.classList.add('product');
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
       
-              productElement.innerHTML = `
-                <img src="${photoURL}" alt="Product Image">
-                <p class="product-type">${type}</p>
-                <p class="product-name">${name}</p>
-              `;
+                productElement.innerHTML = `
+                    <img src="${photoURL}" alt="Product Image">
+                    <p class="product-type">${type}</p>
+                    <p class="product-name">${name}</p>
+                `;
+                
+                productElement.addEventListener('click', () => {
+                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    window.location.href = productDetailURL;
+                });
       
-              const productGrid = document.getElementById('product-grid-4');
-              productGrid.appendChild(productElement);
+                const productGrid = document.getElementById('product-grid-4');
+                productGrid.appendChild(productElement);
             }
-          });
+        });
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -127,23 +144,27 @@ const fetchAndDisplayData5 = async()=>{
     
         querySnapshot.forEach((productDoc) => {
             if (productDoc.exists()) {
-              const productData = productDoc.data();
-              const { photoURL, name, type } = productData;
+                const productData = productDoc.data();
+                const { photoURL, name, type } = productData;
       
-              // สร้าง HTML element และแสดงข้อมูลสินค้า
-              const productElement = document.createElement('div');
-              productElement.classList.add('product');
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
       
-              productElement.innerHTML = `
-                <img src="${photoURL}" alt="Product Image">
-                <p class="product-type">${type}</p>
-                <p class="product-name">${name}</p>
-              `;
+                productElement.innerHTML = `
+                    <img src="${photoURL}" alt="Product Image">
+                    <p class="product-type">${type}</p>
+                    <p class="product-name">${name}</p>
+                `;
+
+                productElement.addEventListener('click', () => {
+                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    window.location.href = productDetailURL;
+                });
       
-              const productGrid = document.getElementById('product-grid-5');
-              productGrid.appendChild(productElement);
+                const productGrid = document.getElementById('product-grid-5');
+                productGrid.appendChild(productElement);
             }
-          });
+        });
     } catch (error) {
         console.error('Error fetching data:', error);
     }
