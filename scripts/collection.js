@@ -1,7 +1,7 @@
 import { auth, app } from '../firebase/connect.js'
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import {getFirestore, collection, doc, getDocs, query, where} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
-import {productDetail} from '../productDetail/productDetail.js'
+import {productDetail} from '../scripts/productDetail.js'
 
 const db = getFirestore(app)
 const productsColl = collection(db, "products")
@@ -26,7 +26,7 @@ const fetchAndDisplayData1 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -58,7 +58,7 @@ const fetchAndDisplayData2 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -91,7 +91,7 @@ const fetchAndDisplayData3 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -124,7 +124,7 @@ const fetchAndDisplayData4 = async()=>{
                 `;
                 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -157,7 +157,7 @@ const fetchAndDisplayData5 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `../productDetail/productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
                     window.location.href = productDetailURL;
                 });
       

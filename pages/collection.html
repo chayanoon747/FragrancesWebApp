@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Fragrances Web App</title>
+        <link rel="stylesheet" href="../styles/collection.css">
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/footer.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+    </head>
+    <body>
+        <header>
+            <script>
+                fetch('../components/header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('header').innerHTML = data;
+                    });
+            </script>
+        </header>
+
+        <div class="tag-menu">
+            <p>FRAGRANCES > Collections</p>
+        </div>
+
+        <div class="banner">
+            <img width="50%" height="400" src="https://cdn.discordapp.com/attachments/1161963005710450829/1161963049796763738/Fragrances-collections.png" alt="collection-image" id="banner-image">
+            <p>COLLECTIONS</p>
+        </div>
+
+        <div class="collection-detail">
+            <hr/><p class="header-text-collection">COLONIA COLLECTION</p>
+            <div class="grid-container" id="product-grid-1"></div>
+
+            <hr/><p class="header-text-collection">SIGNATURES OF THE SUN</p>
+            <div class="grid-container" id="product-grid-2"></div>
+
+            <hr/><p class="header-text-collection">BLU MEDITERRANEO</p>
+            <div class="grid-container" id="product-grid-3"> </div>
+
+            <hr/><p class="header-text-collection">NOTE DI COLONIA</p>
+            <div class="grid-container" id="product-grid-4"></div>
+
+            <hr/><p class="header-text-collection">LE NOBILI</p>
+            <div class="grid-container" id="product-grid-5"></div>
+        </div>
+        
+
+        <footer>
+            <script>
+                fetch('../components/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('footer').innerHTML = data;
+                    });
+            </script>
+        </footer>
+        <script type="module" src="../scripts/collection.js"></script>
+    </body>
+
+    
+</html>

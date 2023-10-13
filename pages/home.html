@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fragrances Web App</title>
+    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+    <script src="../scripts/home.js"></script>
+</head>
+<body>
+    <header>
+        <script>
+            fetch('../components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                });
+        </script>
+    </header>
+    
+    <div class="banner">
+        <img src="https://cdn.discordapp.com/attachments/1157236550548062248/1157236593111875584/summer-scents.png?ex=65290390&is=65168e90&hm=7460e5822e9871b68f27eb2b4da0632663af740023023a6e0c177d3f4ef7c3e1&" alt="banner">
+    </div>
+
+    <div class="tag-menu">
+        
+    </div>
+
+    <footer>
+        <script>
+            fetch('../components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+        </script>
+    </footer>
+</body>
+
+</html>

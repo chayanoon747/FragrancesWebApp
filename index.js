@@ -10,7 +10,7 @@ signIn.addEventListener('click',(e)=>{
     .then((userCredential)=>{
       const user = userCredential.user;
       alert('Sign in successfully');
-      window.location.href = './home/home.html';
+      window.location.href = './pages/home.html';
     })
     .catch((error)=>{
       alert(error.message);

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lane="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Fragrances Web App</title>
+        <link rel="stylesheet" href="../styles/productDetail.css">
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/footer.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+    </head>
+    <body>
+        <header>
+            <script>
+                fetch('../components/header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('header').innerHTML = data;
+                    });
+            </script>
+        </header>
+
+        <div class="tag-menu">
+            <p id="product-collection-path">Loading...</p>
+        </div>
+
+        <div class="photo-image">
+            <img width="700" height="700" src="" alt="product-image" id="product-image">
+        </div>
+        <div class="product-detail">
+            <div class="type-collection">
+                <p class="type" id="product-type">Loading...</p>
+                <p class="hyphen"> - </p>
+                <p class="collection" id="product-collection">Loading...</p>
+            </div>
+            
+            <p class="name" id="product-name">Loading...</p>
+            <p class="size" >Choose your Size</p>
+            <div class="div-size-btn">
+                <button class="size-button" id="button1">50ml</button>
+                <button class="size-button" id="button2">75ml</button>
+                <button class="size-button" id="product-size">Loading...</button>
+            </div>
+            <button class="purchase-button" id="button4">PURCHASE</button>
+        </div>
+        
+
+        <footer>
+            <script>
+                fetch('../components/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('footer').innerHTML = data;
+                    });
+            </script>
+        </footer>
+        <script type="module" src="../scripts/productDetail.js"></script>
+    </body>
+
+    
+</html>
