@@ -61,8 +61,8 @@ body {
 
 .size-button {
     font-family: 'Zen Antique Soft', serif;
-    border: 2px solid lightgray; /* กำหนดเส้นขอบ 1px */
-    padding: 10px 30px; /* กำหนดขนาดของปุ่ม */
+    border: 2px solid lightgray; 
+    padding: 10px 30px; 
     margin: 5px 5px 0 0;
     cursor: pointer;
     background-color: #FFFFFF;
@@ -70,7 +70,7 @@ body {
 
 .size-button.clicked {
     font-family: 'Zen Antique Soft', serif;
-    border: 2px solid black; /* เปลี่ยนเส้นขอบเป็น 3px หลังคลิก */
+    border: 2px solid black; 
 }
 
 .div-size-btn {

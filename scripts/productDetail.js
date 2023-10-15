@@ -6,7 +6,7 @@ const db = getFirestore(app)
 const productsColl = collection(db, "products")
 
 const urlParams = new URLSearchParams(window.location.search);
-const productUId = urlParams.get('id');
+const productUID = urlParams.get('id');
 
 export const productDetail = async(productUID)=>{
     try {
@@ -36,8 +36,8 @@ export const productDetail = async(productUID)=>{
     }
 }
 
-if(productUId){
-    productDetail(productUId)
+if(productUID){
+    productDetail(productUID)
 }
 
 

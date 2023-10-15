@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
-    <script src="../scripts/profile.js"></script>
 </head>
 <body>
     <header>
@@ -26,7 +25,6 @@
         <p>Home > Account</p>
     </div>
     
-
     <div class="div-tab-menu">
         <div class="tab-menu">
             <ul>
@@ -36,10 +34,11 @@
                 <li><a href="#menu4" onclick="showContent('menu4')">Wallet<img width=10% src="../assets/arrowright.png"/></a></li>
             </ul>
         </div>
+        
         <div class="content">
-            <div class="data-menu" id="menu1">
+            <div class="data-menu data-menu1-heigth" id="menu1">
                 <nav class="nav-menu">
-                    <h2>Profile</h2>
+                    <span>Profile</span>
                     <a class="button-edit"href="https://www.flowchef.co/">
                         <button class="button">Edit <img width="16" src="../assets/edit.png"/></button>
                         <button class="button_bg-grad"></button>    
@@ -55,42 +54,44 @@
                         <li>Mobile</li>
                     </ul>
                     <ul class="ul-right">
-                        <li>Chayanon</li>
-                        <li>Pissanuwattanasak</li>
+                        <li id="firstname">Chayanon</li>
+                        <li id="lastname">Pissanuwattanasak</li>
                         <li>Male</li>
-                        <li>chayanon.pi@ku.th</li>
+                        <li id="email">chayanon.pi@ku.th</li>
                         <li>0816538747</li>
                     </ul>
                 </ul>
             </div>
-            <div class="data-menu" id="menu2">
+            <div class="data-menu data-menu2-heigth" id="menu2">
                 <nav class="nav-menu">
-                    <h2>Address</h2>
-                    <a class="button-edit"href="https://www.flowchef.co/">
-                        <button class="button">Edit <img width="16" src="../assets/edit.png"/></button>
-                        <button class="button_bg-grad"></button>    
-                    </a>
+                    <span>Address</span>
                 </nav>
                 
-                <ul class="ul-container">
-                    <ul class="ul-left">
-                        <li>First Name</li>
-                        <li>Last Name</li>
-                        <li>Gender</li>
-                        <li>Email</li>
-                        <li>Mobile</li>
-                    </ul>
-                    <ul class="ul-right">
-                        <li>Chayanon</li>
-                        <li>Pissanuwattanasak</li>
-                        <li>Male</li>
-                        <li>chayanon.pi@ku.th</li>
-                        <li>0816538747</li>
-                    </ul>
-                </ul>
+                <form class="form">
+                    <span>Receiver</span>
+                    <nav class="input-group">
+                        <input type="text" id="form-firstname" placeholder="First Name"/>
+                        <input type="text" id="form-lastname" placeholder="Last Name"/>
+                    </nav>
+                    <input type="text" id="form-phone-number" placeholder="Phone Number"/>
+                    <span>Shipping Address</span>
+                    <nav class="input-group">
+                        <input type="text" id="form-address" placeholder="Address"/>
+                        <input type="text" id="form-sub-district" placeholder="Sub-District"/>
+                        
+                    </nav>
+                    <nav class="input-group">
+                        <input type="text" id="form-district" placeholder="District"/>
+                        <input type="text" id="form-province" placeholder="Province"/>
+                    </nav>
+                    <input type="text" id="form-postcode" placeholder="Postcode"/>
+                    <span>Country</span>
+                    <input type="text" id="form-country" placeholder="Country"/>
+                    <button type="submit" id="submit">Add Recipient's Information</button>
+                </form>
             </div>
             <div class="data-menu" id="menu3">
-                <h2>Order History</h2>
+                <span>Order History</span>
                 
                 <ul class="ul-container">
                     <ul class="ul-left">
@@ -111,7 +112,7 @@
             </div>
             <div class="data-menu" id="menu4">
                 <nav class="nav-menu">
-                    <h2>Wallet</h2>
+                    <span>Wallet</span>
                     <a class="button-edit"href="https://www.flowchef.co/">
                         <button class="button">Edit <img width="16" src="../assets/edit.png"/></button>
                         <button class="button_bg-grad"></button>    
@@ -138,9 +139,6 @@
         </div>
 
     </div>
-
-    
-
     <footer>
         <script>
             fetch('../components/footer.html')
@@ -163,6 +161,7 @@
             selectedContent.classList.add('active');
         }
     </script>
+    <script type="module" src="../scripts/profile.js"></script>
 </body>
 
 </html>
