@@ -6,6 +6,9 @@ import {productDetail} from '../scripts/productDetail.js'
 const db = getFirestore(app)
 const productsColl = collection(db, "products")
 
+const urlParams = new URLSearchParams(window.location.search);
+const userUID = urlParams.get('uid');
+
 const fetchAndDisplayData1 = async()=>{
     try {
         const qry = query(productsColl, where("collection", "==", "COLONIA COLLECTION"));
@@ -26,7 +29,7 @@ const fetchAndDisplayData1 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}&uid=${userUID}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -58,7 +61,7 @@ const fetchAndDisplayData2 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}&uid=${userUID}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -91,7 +94,7 @@ const fetchAndDisplayData3 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}&uid=${userUID}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -124,7 +127,7 @@ const fetchAndDisplayData4 = async()=>{
                 `;
                 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}&uid=${userUID}`;
                     window.location.href = productDetailURL;
                 });
       
@@ -157,7 +160,7 @@ const fetchAndDisplayData5 = async()=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}&uid=${userUID}`;
                     window.location.href = productDetailURL;
                 });
       

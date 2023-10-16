@@ -12,6 +12,7 @@
     padding-left: 45%;
     text-decoration: none;
     color: #14213D;
+    cursor: pointer;
     
 }
 .header-content a:hover {
@@ -33,6 +34,7 @@
 
 .icon-header {
     display: flex;
+    cursor: pointer;
 }
 
 .icon-header svg { 
@@ -53,6 +55,7 @@
     height: 40px;
     font-family: 'Zen Antique Soft', serif;
     border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
 
 .menu a {
