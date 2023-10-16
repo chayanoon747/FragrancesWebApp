@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
     <script src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/profile.js"></script>
+    <script src="../scripts/handleProfile.js"></script>  
 </head>
 <body>
     <header>
@@ -28,7 +30,6 @@
                 <li><a href="#menu1" onclick="showContent('menu1')">Profile<img width=10% src="../assets/arrowright.png"/></a></li>
                 <li><a href="#menu2" onclick="showContent('menu2')">Address<img width=10% src="../assets/arrowright.png"/></a></li>
                 <li><a href="#menu3" onclick="showContent('menu3')">Order History<img width=10% src="../assets/arrowright.png"/></a></li>
-                <li><a href="#menu4" onclick="showContent('menu4')">Wallet<img width=10% src="../assets/arrowright.png"/></a></li>
             </ul>
         </div>
         
@@ -36,9 +37,11 @@
             <div class="data-menu data-menu1-heigth" id="menu1">
                 <nav class="nav-menu">
                     <span>Profile</span>
-                    <a class="button-edit"href="https://www.flowchef.co/">
-                        <button class="button">Edit <img width="16" src="../assets/edit.png"/></button>
-                        <button class="button_bg-grad"></button>    
+                    <a class="button-edit" onclick="handleEditBtn()">
+                        <button class="edit-button" id="edit-button">
+                            <span class="edit-span" id="edit-button-span">Edit</span>
+                            <img id="edit-button-img" width="16" src="../assets/edit.png"/>
+                        </button>
                     </a>
                 </nav>
                 
@@ -48,14 +51,15 @@
                         <li>Last Name</li>
                         <li>Gender</li>
                         <li>Email</li>
-                        <li>Mobile</li>
+                        <li>Phone Number</li>
                     </ul>
                     <ul class="ul-right">
-                        <li id="firstname">Chayanon</li>
-                        <li id="lastname">Pissanuwattanasak</li>
-                        <li>Male</li>
-                        <li id="email">chayanon.pi@ku.th</li>
-                        <li>0816538747</li>
+                        <input id="firstname" disabled>
+                        <input id="lastname" disabled>
+                         
+                        <input id="gender" disabled>
+                        <input id="email" disabled>
+                        <input id="phone-number" disabled>
                     </ul>
                 </ul>
             </div>
@@ -64,28 +68,8 @@
                     <span>Address</span>
                 </nav>
                 
-                <form class="form">
-                    <span>Receiver</span>
-                    <nav class="input-group">
-                        <input type="text" id="form-firstname" placeholder="First Name"/>
-                        <input type="text" id="form-lastname" placeholder="Last Name"/>
-                    </nav>
-                    <input type="text" id="form-phone-number" placeholder="Phone Number"/>
-                    <span>Shipping Address</span>
-                    <nav class="input-group">
-                        <input type="text" id="form-address" placeholder="Address"/>
-                        <input type="text" id="form-sub-district" placeholder="Sub-District"/>
-                        
-                    </nav>
-                    <nav class="input-group">
-                        <input type="text" id="form-district" placeholder="District"/>
-                        <input type="text" id="form-province" placeholder="Province"/>
-                    </nav>
-                    <input type="text" id="form-postcode" placeholder="Postcode"/>
-                    <span>Country</span>
-                    <input type="text" id="form-country" placeholder="Country"/>
-                    <button type="submit" id="submit">Add Recipient's Information</button>
-                </form>
+                <nav id="recipient-info"></nav>
+                
             </div>
             <div class="data-menu" id="menu3">
                 <span>Order History</span>
@@ -158,7 +142,7 @@
             selectedContent.classList.add('active');
         }
     </script>
-    <script type="module" src="../scripts/profile.js"></script>
+    
 </body>
 
 </html>
