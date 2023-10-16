@@ -6,6 +6,7 @@ const fetchAndGetData = ()=>{
         handleHeaderContent();
         handleIconProfile();
         handleMenuCollections();
+        handleMenuFragrances();
     });
 }
 
@@ -42,13 +43,26 @@ const handleIconProfile = ()=>{
 const handleMenuCollections = ()=>{
     const menuCollections = document.querySelector('.menu-collections');
     if (menuCollections) {
-        console.log('5')
         menuCollections.addEventListener('click', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const uid = urlParams.get('uid');
             if (uid) {
                 const menuCollectionsURL = `../pages/collection.html?uid=${uid}`;
                     window.location.href = menuCollectionsURL;
+                }
+            });
+    }
+}
+
+const handleMenuFragrances = ()=>{
+    const menuFragrances = document.querySelector('.menu-fragrances');
+    if (menuFragrances) {
+        menuFragrances.addEventListener('click', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const uid = urlParams.get('uid');
+            if (uid) {
+                const menuFragrancesURL = `../pages/home.html?uid=${uid}`;
+                    window.location.href = menuFragrancesURL;
                 }
             });
     }
