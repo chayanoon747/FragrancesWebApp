@@ -1,12 +1,14 @@
 import { auth, app } from '../firebase/connect.js'
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import {getFirestore, collection, doc, getDoc} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
-
-const db = getFirestore(app)
-const productsColl = collection(db, "products")
+import {getFirestore, collection, doc, getDoc, getDocs, query, where, updateDoc, arrayUnion} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
 
 const urlParams = new URLSearchParams(window.location.search);
 const productUID = urlParams.get('id');
+const userUID = urlParams.get('uid');
+
+const db = getFirestore(app)
+const productsColl = collection(db, "products")
+const shopbagsColl = collection(db, "shopbags")
 
 export const productDetail = async(productUID)=>{
     try {
@@ -40,7 +42,6 @@ if(productUID){
     productDetail(productUID)
 }
 
-
 const sizeButtons = document.querySelectorAll('.size-button');
 sizeButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -49,3 +50,63 @@ sizeButtons.forEach(button => {
         button.classList.add('clicked'); // เพิ่ม class 'clicked' ให้กับปุ่มที่ถูกคลิก
     });
 });
+
+const findDoc = async()=>{
+    const qry = query(shopbagsColl, where("userUID", "==", userUID));
+    const querySnapshot = await getDocs(qry);
+    if (!querySnapshot.empty) {
+        const shopbagsDoc = querySnapshot.docs[0];
+        const documentId = shopbagsDoc.id;
+        //console.log(documentId);
+        return documentId;
+    } else{
+        console.log("ไม่พบเอกสารที่ตรงเงื่อนไข");
+    }
+}   
+
+const addButtons = document.querySelectorAll('.add-button');
+addButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+        const shopbagDocID = await findDoc();
+        console.log(shopbagDocID);
+    
+        const quantity = 1;
+        const itemData = {
+            productUID: productUID,
+            quantity: quantity,
+        };
+    
+        const shopbagDocRef = doc(shopbagsColl, shopbagDocID);
+    
+        try {
+            const shopbagDocSnap = await getDoc(shopbagDocRef);
+    
+            if (shopbagDocSnap.exists()) {
+                const shopbagData = shopbagDocSnap.data();
+                const itemList = shopbagData.itemList || [];
+                
+                // ค้นหา index ของ item ที่มี productUID เท่ากับ productUID ที่คุณต้องการ
+                const existingItemIndex = itemList.findIndex(item => item.productUID === productUID);
+    
+                if (existingItemIndex !== -1) {
+                    // หากมี item ที่มี productUID เดียวกันใน itemList ให้เพิ่ม quantity ขึ้น 1
+                    itemList[existingItemIndex].quantity += 1;
+                } else {
+                    // ถ้าไม่มี item ที่มี productUID เดียวกันใน itemList ให้เพิ่ม item ใหม่
+                    itemList.push(itemData);
+                }
+    
+                // อัปเดต itemList ในเอกสาร shopbagDoc
+                await updateDoc(shopbagDocRef, { itemList });
+    
+                console.log('อัปเดตข้อมูลเอกสาร shopbags สำเร็จ');
+            } else {
+                console.error('ไม่พบเอกสาร shopbags');
+            }
+        } catch (error) {
+            console.error('เกิดข้อผิดพลาดในการอัปเดตข้อมูล: ', error);
+        }
+    });
+});
+
+ 

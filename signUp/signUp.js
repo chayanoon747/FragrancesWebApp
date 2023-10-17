@@ -1,9 +1,10 @@
 import { auth, app } from '../firebase/connect.js'
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import {getFirestore, collection, doc, setDoc} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+import {getFirestore, collection, doc, setDoc, addDoc} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
 
 const db = getFirestore(app)
 const usersColl = collection(db, "users")
+const shopbagsColl = collection(db, "shopbags")
 
 const updateUserData = (user, firstname, lastname, email) => {
   setDoc(doc(usersColl, user.uid), {
@@ -21,6 +22,16 @@ const updateUserData = (user, firstname, lastname, email) => {
   });
 };
 
+const createUserShopBag = (user) => {
+  addDoc(shopbagsColl, {
+    userUID: user.uid
+  })
+  .catch((error) => {
+    alert(error.message);
+  });
+};
+
+
 signUp.addEventListener('click',(e)=>{
     e.preventDefault(); // ป้องกันการโหลดหน้าใหม่เมื่อผู้ใช้กดปุ่ม "Sign Up"
     var firstname = document.getElementById("firstname").value;
@@ -31,6 +42,7 @@ signUp.addEventListener('click',(e)=>{
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential)=>{
       const user = userCredential.user;
+      createUserShopBag(user);
       updateUserData(user, firstname, lastname, email);
       
     })
