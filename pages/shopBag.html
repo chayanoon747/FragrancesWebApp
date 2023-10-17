@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fragrances Web App</title>
+    <link rel="stylesheet" href="../styles/shopBag.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+    <script src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/shopBag.js"></script>
+</head>
+<body>
+    <header>
+        <script>
+            fetchAndGetData()
+        </script>
+    </header>
+    
+
+    <div class="tag-menu">
+        <p>Home > Shopping Bag</p>
+    </div>
+
+    <div class="text-content">
+        <h3>Shopping Bag</h3>
+    </div>
+
+    <div class="content">
+        <table>
+            <tr>
+                <th>Product Detail</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td class="td-product">
+                    <img src="https://cdn.discordapp.com/attachments/1161997759688224868/1161999598798245998/ADP57042-75ML.png" alt="Product 1">
+                    ProductProduct
+                </td>
+                <td class="td-quantity">
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="text" value="1">
+                        <button>+</button>
+                    </div>
+                </td>
+                <td class="td-price">$10.00</td>
+                <td class="total">$10.00</td>
+            </tr>
+            <tr>
+                <td class="td-product">
+                    <img src="https://cdn.discordapp.com/attachments/1161997759688224868/1161999598798245998/ADP57042-75ML.png" alt="Product 1">
+                    ProductProduct
+                </td>
+                <td class="td-quantity">
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="text" value="1">
+                        <button>+</button>
+                    </div>
+                </td>
+                <td class="td-price">$10.00</td>
+                <td class="total">$10.00</td>
+            </tr>
+            <tr>
+                <td class="td-product">
+                    <img src="https://cdn.discordapp.com/attachments/1161997759688224868/1161999598798245998/ADP57042-75ML.png" alt="Product 1">
+                    ProductProduct
+                </td>
+                <td class="td-quantity">
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="text" value="1">
+                        <button>+</button>
+                    </div>
+                </td>
+                <td class="td-price">$10.00</td>
+                <td class="total">$10.00</td>
+            </tr>
+            <tr>
+                <td class="td-product">
+                    <img src="https://cdn.discordapp.com/attachments/1161997759688224868/1161999598798245998/ADP57042-75ML.png" alt="Product 1">
+                    ProductProduct
+                </td>
+                <td class="td-quantity">
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="text" value="1">
+                        <button>+</button>
+                    </div>  
+                </td>
+                <td class="td-price">$10.00</td>
+                <td class="total">$10.00</td>
+            </tr>
+            <!-- Add more rows for additional products -->
+        </table>
+        <div class="summary-order">
+            <h4>Order Summary</h4>
+            <table class="summary-table">
+                <tr>
+                    <td class="title-order">Subtotal</td>
+                    <td class="cost">$50.00</td>
+                </tr>
+                <tr>
+                    <td class="title-order">Shipping cost</td>
+                    <td class="cost">$5.00</td>
+                </tr>
+                <tr>
+                    <td class="title-order">Total</td>
+                    <td class="cost total">$55.00</td>
+                </tr>
+            </table>
+            <button class="checkout-button" id="button4">CHECKOUT</button>
+        </div>
+        
+    </div>
+    
+    
+    <footer>
+        <script>
+            fetch('../components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+        </script>
+    </footer>
+    <script>
+        function showContent(menuId) {
+            // ซ่อนเนื้อหาของทุกเมนูก่อน
+            const allContent = document.querySelectorAll('.content div');
+            allContent.forEach((content) => {
+                content.classList.remove('active');
+            });
+
+            // แสดงเนื้อหาของเมนูที่ถูกเลือก
+            const selectedContent = document.getElementById(menuId);
+            selectedContent.classList.add('active');
+        }
+    </script>
+    
+</body>
+</html>

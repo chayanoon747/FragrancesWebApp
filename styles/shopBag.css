@@ -1,0 +1,116 @@
+.tag-menu p {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 12px;
+    padding-left: 5%;
+}
+
+.text-content h3 {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 26px;
+    padding: 3% 0 3% 5%;
+}
+
+.content {
+    display: flex;
+    margin-bottom: 2%;
+}
+
+table {
+    margin-left: 5%;
+    padding: 0;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+table, th, td {
+    border: none;
+}
+
+th, td {
+    padding: 1% 0 1% 0;
+    text-align: left;
+}
+
+th {
+    color: #aaa;
+}
+
+td:first-child {
+    width: 60%;
+}
+
+.td-quantity {
+    width: 20%;
+}
+
+td img {
+    width: 200px;
+    height: 200px;
+    vertical-align: middle;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity input {
+    width: 15%;
+    text-align: center;
+}
+
+.quantity button {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.summary-order {
+    border: 1px solid #ccc;
+    width: 25%;
+    height: 300px;
+}
+
+.summary-order h4 {
+    text-align: center;
+    font-family: 'Zen Antique Soft', serif;
+}
+
+.summary-table {
+    width: 90%;
+    height: 180px;
+}
+
+.summary-table td {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 14px;
+}
+
+.title-order {
+    text-align: left;
+}
+
+.cost {
+    text-align: right;
+}
+
+.checkout-button {
+    margin-top: 2%;
+    margin-left: 5%;
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 16px;
+    width: 90%;
+    height: 12%;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #14213D;
+    color: #FFFFFF;
+}

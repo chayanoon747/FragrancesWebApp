@@ -5,6 +5,7 @@ const fetchAndGetData = ()=>{
         document.querySelector('header').innerHTML = data;
         handleHeaderContent();
         handleIconProfile();
+        handleIconShopBag();
         handleMenuCollections();
         handleMenuFragrances();
     });
@@ -13,7 +14,6 @@ const fetchAndGetData = ()=>{
 const handleHeaderContent = ()=>{
     const headerContent = document.querySelector('.header-content-p');
     if (headerContent) {
-        console.log('1')
         headerContent.addEventListener('click', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const uid = urlParams.get('uid');
@@ -28,13 +28,26 @@ const handleHeaderContent = ()=>{
 const handleIconProfile = ()=>{
     const iconProfile = document.querySelector('.icon-profile');
     if (iconProfile) {
-        console.log('1')
         iconProfile.addEventListener('click', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const uid = urlParams.get('uid');
             if (uid) {
                 const profileURL = `../pages/profile.html?uid=${uid}`;
                     window.location.href = profileURL;
+                }
+            });
+    }
+}
+
+const handleIconShopBag = ()=>{
+    const iconShopBag = document.querySelector('.icon-shopBag');
+    if (iconShopBag) {
+        iconShopBag.addEventListener('click', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const uid = urlParams.get('uid');
+            if (uid) {
+                const shopBagURL = `../pages/shopBag.html?uid=${uid}`;
+                    window.location.href = shopBagURL;
                 }
             });
     }

@@ -77,9 +77,9 @@ body {
     margin: 0 0 30px 0;
 }
 
-.purchase-button {
+.add-button {
     font-family: 'Zen Antique Soft', serif;
-    font-size: 20px;
+    font-size: 16px;
     width: 45%;
     height: 45px;
     cursor: pointer;
