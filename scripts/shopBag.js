@@ -106,12 +106,31 @@ const fetchdataShopBag = (shopbagsArray)=>{
         const quantityDiv = document.createElement('div');
         quantityDiv.className = 'quantity';
         const minusButton = document.createElement('button');
+        minusButton.addEventListener('click', () => {
+            if(quantityInput.value > 1){
+                quantityInput.value-=1;
+                productInfo.quantity = quantityInput.value
+                changeQuantity(productInfo.productUID, productInfo.quantity);
+                totalPrice-=parseInt(productInfo.productData.price)
+                tdTotal.textContent = `$${(productInfo.quantity * productInfo.productData.price)}`;
+                getOrderSummary(totalPrice);
+            }
+        });
         minusButton.textContent = '-';
         minusButton.className = 'minus';
         const quantityInput = document.createElement('input');
         quantityInput.type = 'text';
         quantityInput.value = productInfo.quantity;
         const plusButton = document.createElement('button');
+        plusButton.addEventListener('click', () => {
+            const quantityValue = parseInt(quantityInput.value);
+            quantityInput.value = quantityValue + 1;
+            productInfo.quantity = quantityInput.value;
+            changeQuantity(productInfo.productUID, productInfo.quantity);
+            totalPrice+=parseInt(productInfo.productData.price)
+            tdTotal.textContent = `$${(productInfo.quantity * productInfo.productData.price)}`;
+            getOrderSummary(totalPrice);
+        });
         plusButton.textContent = '+';
         plusButton.className = 'plus';
         quantityDiv.appendChild(minusButton);
@@ -147,12 +166,10 @@ const fetchdataShopBag = (shopbagsArray)=>{
             totalPrice -= productInfo.quantity * productInfo.productData.price;
             console.log(totalPrice);
             getOrderSummary(totalPrice);
-          });
+        });
 
         tdRemove.appendChild(removeIMG);
         tdRemove.className = 'td-remove';
-        
-        
         
         // เพิ่ม <td> ทั้ง 4 ลงใน <tr>
         tr.appendChild(tdProduct);
@@ -164,7 +181,7 @@ const fetchdataShopBag = (shopbagsArray)=>{
         // เพิ่ม <tr> ลงใน tbody ของตาราง
         tableBody.appendChild(tr);
 
-        //
+        // คำนวณราคา total
         totalPrice = totalPrice+=(productInfo.quantity * productInfo.productData.price);
     });
     console.log(totalPrice);
@@ -215,6 +232,38 @@ const removeProduct = async(productUID)=>{
         }
       } catch (error) {
         console.error('เกิดข้อผิดพลาดในการลบรายการสินค้า: ', error);
+      }
+}
+
+const changeQuantity = async(productUID, quantity)=>{
+    const shopbagDocID = await findDoc();
+    const shopbagDocRef = doc(shopbagsColl, shopbagDocID);
+    try {
+        const shopbagDocSnap = await getDoc(shopbagDocRef);
+    
+        if (shopbagDocSnap.exists()) {
+            // ดึงข้อมูล shopbag จากเอกสาร Firestore
+            const shopbagData = shopbagDocSnap.data();
+        
+            // ค้นหา index ของรายการสินค้าที่ตรงกับ productUID ใน itemList
+            const index = shopbagData.itemList.findIndex(item => item.productUID === productUID);
+        
+            if (index !== -1) {
+                // หากพบรายการที่ตรง, ให้อัปเดตค่า quantity ของรายการนั้น
+                shopbagData.itemList[index].quantity = parseInt(quantity);
+                // อัปเดตข้อมูลใน Firestore
+                await updateDoc(shopbagDocRef, {
+                    itemList: shopbagData.itemList
+                });
+                console.log(`change quantity productUID: ${productUID}`);
+            } else {
+                console.log(`ไม่พบรายการสินค้าที่มี productUID: ${productUID}`);
+            }
+        } else {
+          console.error('ไม่พบเอกสาร shopbags');
+        }
+      } catch (error) {
+        console.error('เกิดข้อผิดพลาดในการ change quantity product: ', error);
       }
 }
 
