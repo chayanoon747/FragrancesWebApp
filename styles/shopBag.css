@@ -36,15 +36,23 @@ th {
     color: #aaa;
 }
 
+th:first-child {
+    padding-left: 6%;
+}
+
 td:first-child {
-    width: 60%;
+    width: 55%;
+}
+
+.table-total, .table-remove {
+    text-align: center;
 }
 
 .td-quantity {
     width: 20%;
 }
 
-td img {
+.td-product img {
     width: 200px;
     height: 200px;
     vertical-align: middle;
@@ -57,20 +65,34 @@ td img {
 
 .quantity input {
     width: 15%;
+    height: 19.5px;
     text-align: center;
 }
 
 .quantity button {
-    padding: 5px 10px;
-    background-color: #fff;
+    padding: 0 10px;
     color: #000;
-    border: none;
+    border: 1px solid black;
     cursor: pointer;
     font-size: 20px;
 }
 
 .total {
     font-weight: bold;
+}
+
+.td-total {
+    width: 10%;
+    text-align: center;
+}
+
+.td-remove img {
+    width: 30%;
+    cursor: pointer;
+}
+
+.td-remove {
+    text-align: center;
 }
 
 .summary-order {
@@ -108,9 +130,23 @@ td img {
     font-family: 'Zen Antique Soft', serif;
     font-size: 16px;
     width: 90%;
-    height: 12%;
+    height: 13%;
     cursor: pointer;
     border-radius: 5px;
     background-color: #14213D;
     color: #FFFFFF;
 }
+
+.minus {
+    width: 18%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.plus {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+
