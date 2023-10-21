@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Fragrances Web App</title>
+        <link rel="stylesheet" href="../styles/search.css">
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/footer.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+        <script src="https://kit.fontawesome.com/3655bbf554.js" crossorigin="anonymous"></script>
+        <script src="../scripts/header.js"></script>
+    </head>
+    <body>
+        <header>
+            <script>
+                fetchAndGetData()
+            </script>
+        </header>
+
+        <div class="tag-menu">
+            <p>FRAGRANCES > Search</p>
+        </div>
+
+        <div class="box">
+            <input type="checkbox" id="check">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <label for="check" class="icon">
+                    <i class="fas fa-search"></i>
+                </label>
+            </div>
+        </div>
+
+        <div class="div-header-content">
+            <h1 id="header-content">Search Result</h1>
+        </div>
+
+        <div class="search-detail">
+            <div class="grid-container" id="product-grid-1"></div>
+        </div>
+
+        <footer>
+            <script>
+                fetch('../components/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('footer').innerHTML = data;
+                    });
+            </script>
+        </footer>
+        <script type="module" src="../scripts/search.js"></script>
+    </body>
+
+    
+</html>

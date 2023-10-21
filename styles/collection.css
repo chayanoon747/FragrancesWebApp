@@ -1,11 +1,3 @@
-header {
-    display: flex;
-    background-color: #FFFFFF;
-    color: #000000;
-    font-family: 'Zen Antique Soft', serif;
-    font-size: 60px;
-}
-
 body {
     font-family: 'Zen Antique Soft', serif;
     padding: 0;
