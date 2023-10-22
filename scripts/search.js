@@ -4,10 +4,13 @@ import {getFirestore, collection, doc, getDocs, query, where} from 'https://www.
 const db = getFirestore(app)
 const productsColl = collection(db, "products")
 
+const urlParams = new URLSearchParams(window.location.search);
+const userUID = urlParams.get('uid');
+
 const searchInput = document.getElementById('searchInput');
 
 // รับค่า input จากผู้ใช้
-var inputElement = document.getElementById('searchInput'); // เปลี่ยน ID เป็น ID ของ input ของคุณ
+var inputElement = document.getElementById('searchInput'); 
 
 // อัพเดตรายการเมื่อปุ่ม Enter ถูกกด
 inputElement.addEventListener('keypress', function (e) {
