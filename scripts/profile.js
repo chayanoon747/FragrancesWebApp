@@ -2,8 +2,7 @@ import { auth, app } from '../firebase/connect.js'
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import {getFirestore, collection, doc, getDoc, setDoc, updateDoc, query, getDocs, where} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
 
-const urlParams = new URLSearchParams(window.location.search);
-const userUID = urlParams.get('uid');
+const userUID = localStorage.getItem('uid');
 console.log(`uid: ${userUID}`);
 
 const db = getFirestore(app)
