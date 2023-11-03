@@ -12,25 +12,29 @@ const shopbagsColl = collection(db, "shopbags")
 
 export const productDetail = async(productUID)=>{
     try {
-        
+        //เข้าถึง collection products โดยมี productUID ในการระบุเอกสารที่เข้าถึง
         const productRef = doc(productsColl, productUID);
-    
+        // getDoc() ดึงเอกสาร
         const productSnapshot = await getDoc(productRef);
     
+        // .exists ใช้เช็คว่าข้อมูลในเอกสารที่ถูกอ้างอิงมีอยู่หรือไม่
         if (productSnapshot.exists) {
             const productData = productSnapshot.data();
             const { photoURL, collection, name, size, type } = productData;
             // Display the data in the HTML elements
+            //collection.slice(0, 1) ดึงอักษรแรก 
+            //collection.slice(1, -1).toLowerCase() ดึงอักษรระหว่างตัวแรกกับตัวท้าย
+            //collection.slice(-1) ดึงตัวท้าย
             const collectionPath = collection.slice(0, 1) + collection.slice(1, -1).toLowerCase() + collection.slice(-1).toLowerCase();
             document.getElementById('product-collection-path').textContent = 'FRAGRANCES > Collections >' + collectionPath;
             const image = document.getElementById('product-image');
             image.src = photoURL;
+            // กำหนด value ของ id ต่างๆ
             document.getElementById('product-type').textContent = type;
             document.getElementById('product-collection').textContent = collection;
             document.getElementById('product-name').textContent = name;
             document.getElementById('product-size').textContent = size + 'ml';
         } else {
-            // Handle the case when the product is not found
             productDataElement.innerHTML = 'Product not found';
         }
     } catch (error) {
@@ -89,7 +93,7 @@ addButtons.forEach(button => {
                 const existingItemIndex = itemList.findIndex(item => item.productUID === productUID);
     
                 if (existingItemIndex !== -1) {
-                    // หากมี item ที่มี productUID เดียวกันใน itemList ให้เพิ่ม quantity ขึ้น 1
+                    // ถ้ามี item ที่มี productUID เดียวกันใน itemList ให้เพิ่ม quantity ขึ้น 1
                     itemList[existingItemIndex].quantity += 1;
                 } else {
                     // ถ้าไม่มี item ที่มี productUID เดียวกันใน itemList ให้เพิ่ม item ใหม่

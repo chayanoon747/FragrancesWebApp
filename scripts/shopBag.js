@@ -220,6 +220,7 @@ const removeProduct = async(productUID)=>{
         
             if (index !== -1) {
                 // ถ้าพบรายการที่ตรง, ให้ลบรายการนั้นออกจาก itemList
+                // ลบข้อมูลในตำแหน่งที่ index
                 shopbagData.itemList.splice(index, 1);
         
                 // อัปเดตข้อมูลใน Firestore
