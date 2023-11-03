@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Fragrances Web App</title>
+        <link rel="stylesheet" href="../styles/ourHouse.css">
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/footer.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+        <script src="../scripts/header.js"></script>
+    </head>
+    <body>
+        <header>
+            <script>
+                fetchAndGetData()
+            </script>
+        </header>
+
+        <div class="tag-menu">
+            <p>FRAGRANCES > Our House</p>
+        </div>
+
+        <div class="banner">
+            <h1>OUR STORY</h1>
+            <p>
+                Created in 1916 by the baron Carlo Magnani from Parma as his own personal Colonia, <br>
+                Acqua di Parma today is a symbol of Italian sophistication, discreet luxury, and craftsmanship that is inspired <br> by its heritage and yet constantly evolving to always stay relevant and meaningful
+            </p>
+            <img width="100%" height="100%" src="https://mediacdn.livestory.io/v1/acquadiparma/posts/r2000/61e579a074c106000aefedf6.jpg.webp" alt="collection-image" id="banner-image">
+        </div>    
+
+        <div class="extra-content">
+            <div class="extra-item minimal-style">
+                <h1>OUR SOUL</h1>
+                <p>
+                    Since 1916, all our products have always been proudly made in Italy. Conscious and caring, we are committed to celebrating, preserving, and perpetuating Italy’s unique historical heritage and rich artisanal tradition for generations to come.
+                </p>
+                <img width="400" height="400" src="https://cdn.discordapp.com/attachments/951838870272606259/1168507836175753258/61e579a074c106000aefedf5.png?ex=655204b9&is=653f8fb9&hm=0403bd37f7df44d341de1b7ce3df62e35334d0b11b302d7b6daa6dce937287e0&" alt="our-soul-image">
+            </div>
+    
+            <div class="extra-item minimal-style">
+                <h1>OUR SUSTAINABILITY</h1>
+                <p>
+                    Acqua di Parma Futura is our sustainability program and is designed to reflect our purpose of ensuring the long-term transmission of sophisticated rituals and by embracing authentic values.
+                </p>
+                <img width="400" height="400" src="https://cdn.discordapp.com/attachments/951838870272606259/1168507867788222524/61e579a074c106000aefedf4.png?ex=655204c1&is=653f8fc1&hm=4c068d10c48eb632b77bc3fae68037a08ca0338bfd5036cc57823e88515f81c5&" alt="our-sustainability-image">
+            </div>
+    
+            <div class="extra-item minimal-style">
+                <h1>OUR ART OF GIFTING</h1>
+                <p>
+                    The iconic yellow gift is an endless series of irresistible items. A heartwarming gift to share in a Yellow Box that is illuminating, bright, and sparkles with vivacity.
+                </p>
+                <img width="400" height="400" src="https://cdn.discordapp.com/attachments/951838870272606259/1168572961767293038/61e579a074c106000aefedf3.png?ex=65524161&is=653fcc61&hm=d543ca060b1526ddced5eb57ee73312e2e263af796f3f8579d2d2c45e6b85d67&" alt="our-gifting-image">
+            </div>
+        </div>
+
+        <footer>
+            <script>
+                fetch('../components/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('footer').innerHTML = data;
+                    });
+            </script>
+        </footer>
+        <script type="module" src="../scripts/ourHouse.js"></script>
+    </body>
+
+    
+</html>

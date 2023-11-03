@@ -1,0 +1,82 @@
+body {
+    font-family: 'Zen Antique Soft', serif;
+    padding: 0;
+}
+
+.tag-menu p {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 12px;
+    padding-left: 5%;
+}
+
+.banner {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 50px;
+    color: #333; 
+}
+
+.banner p {
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+    color: #555; 
+}
+
+#banner-image {
+    margin-top: 50px;
+    max-width: 100%;
+    height: auto;
+}
+
+.extra-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.extra-item {
+    text-align: center;
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    background-color: #fff; 
+}
+
+.extra-item h1 {
+    color: #333;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.extra-item p {
+    font-size: 16px;
+    color: #555;
+    padding: 10px;
+}
+
+.minimal-style:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    color: #FF8C00; 
+}
+
+
+footer {
+    clear: both;
+    width: 100%;
+    height: 300px;
+    background-color: #14213D; 
+    color: #fff; 
+    text-align: center;
+    padding: 20px;
+}
+
+
