@@ -4,7 +4,7 @@ import {getFirestore, collection, doc, getDoc, getDocs, query, where, updateDoc,
 
 const urlParams = new URLSearchParams(window.location.search);
 const productUID = urlParams.get('id');
-const userUID = urlParams.get('uid');
+const userUID = localStorage.getItem('uid');
 
 const db = getFirestore(app)
 const productsColl = collection(db, "products")
@@ -98,20 +98,16 @@ addButtons.forEach(button => {
     
                 // อัปเดต itemList ในเอกสาร shopbagDoc
                 await updateDoc(shopbagDocRef, { itemList });
-
+    
                 console.log('อัปเดตข้อมูลเอกสาร shopbags สำเร็จ');
-                window.location.href = `./shopBag.html?uid=${userUID}`;
+                window.location.href = `./shopBag.html`;
             } else {
                 console.error('ไม่พบเอกสาร shopbags');
             }
         } catch (error) {
             console.error('เกิดข้อผิดพลาดในการอัปเดตข้อมูล: ', error);
         }
-        
     });
 });
-
-
-
 
  

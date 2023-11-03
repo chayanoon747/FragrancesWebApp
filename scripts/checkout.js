@@ -1,25 +1,62 @@
 import { auth, app } from '../firebase/connect.js'
-import {getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, query, where} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+import {getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, query, where, addDoc} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
 
 const confirmPaymentButton = document.getElementById("confirmPaymentButton");
 const paymentForm = document.getElementById("paymentDetailsForm");
 
-const urlParams = new URLSearchParams(window.location.search);
-const userUID = urlParams.get('uid');
+const userUID = localStorage.getItem('uid');
 
 const db = getFirestore(app)
 const shopbagsColl = collection(db, "shopbags")
 const productsColl = collection(db, "products")
+const ordersColl = collection(db, "orders")
 
-confirmPaymentButton.addEventListener("click", (event) => {
+confirmPaymentButton.addEventListener("click", async(event) => {
     event.preventDefault(); 
 
     if (paymentForm.checkValidity()) {
-        window.location.href = `./paymentSuccess.html?uid=${userUID}`;
+        await deleteShopBag();
+        window.location.href = `./paymentSuccess.html`;
     } else {
         
     }
 });
+
+const deleteShopBag = async()=>{
+    const shopbagDocID = await findDoc();
+    const shopbagDocRef = doc(shopbagsColl, shopbagDocID);
+    const updatedData = {
+        itemList: []
+    };
+
+    try {
+        await addDataToOrder();
+        await updateDoc(shopbagDocRef, updatedData);
+        console.log('ลบข้อมูลในฟิลด์ "itemList" ทั้งหมดเรียบร้อยแล้ว');
+    } catch (error) {
+        console.error('เกิดข้อผิดพลาดในการอัปเดตข้อมูล: ', error);
+    }
+}
+
+const addDataToOrder = async()=>{
+    const shopbagDocID = await findDoc();
+    const shopbagDocRef = doc(shopbagsColl, shopbagDocID);
+    try {
+        const shopbagDocSnap = await getDoc(shopbagDocRef);
+        if(shopbagDocSnap.exists()) {
+            const shopbagData = shopbagDocSnap.data();
+            const itemList = shopbagData.itemList;
+            const ordersCollRef = ordersColl
+            await addDoc(ordersCollRef, {
+                itemList: itemList,
+                userUID: userUID,
+            });
+            console.log(`orders successfully added`)
+        }
+    } catch(error) {
+        console.error('เกิดข้อผิดพลาดในการอัปเดตข้อมูล: ', error);
+    }
+}
 
 window.addEventListener("click", (event) => {
     if (event.target === paymentForm) {

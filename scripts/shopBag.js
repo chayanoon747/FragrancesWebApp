@@ -1,8 +1,7 @@
 import { auth, app } from '../firebase/connect.js'
 import {getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, query, where} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
 
-const urlParams = new URLSearchParams(window.location.search);
-const userUID = urlParams.get('uid');
+const userUID = localStorage.getItem('uid');
 console.log(`uid: ${userUID}`);
 
 const db = getFirestore(app)
@@ -10,7 +9,7 @@ const shopbagsColl = collection(db, "shopbags")
 const productsColl = collection(db, "products")
 
 document.querySelector('.checkout-button').addEventListener('click', function() {
-    window.location.href = `./checkout.html?uid=${userUID}`;
+    window.location.href = `./checkout.html`;
 });
 
 const findDoc = async()=>{
@@ -270,12 +269,3 @@ const changeQuantity = async(productUID, quantity)=>{
         console.error('เกิดข้อผิดพลาดในการ change quantity product: ', error);
       }
 }
-
-
-
-
-
-
-
-
-

@@ -4,9 +4,6 @@ import {getFirestore, collection, doc, getDocs, query, where} from 'https://www.
 const db = getFirestore(app)
 const productsColl = collection(db, "products")
 
-const urlParams = new URLSearchParams(window.location.search);
-const userUID = urlParams.get('uid');
-
 const searchInput = document.getElementById('searchInput');
 
 // รับค่า input จากผู้ใช้
@@ -75,7 +72,7 @@ const fetchAndDisplayData = async(results)=>{
                 `;
 
                 productElement.addEventListener('click', () => {
-                    const productDetailURL = `./productDetail.html?id=${productDoc.id}&uid=${userUID}`;
+                    const productDetailURL = `./productDetail.html?id=${productDoc.id}`;
                     window.location.href = productDetailURL;
                 });
       
