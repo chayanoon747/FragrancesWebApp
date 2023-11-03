@@ -38,17 +38,26 @@ signUp.addEventListener('click',(e)=>{
     var lastname = document.getElementById("lastname").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm-password").value;
+    if(firstname && lastname && email && password && confirmPassword){
+      if(password == confirmPassword){
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential)=>{
+          const user = userCredential.user;
+          createUserShopBag(user);
+          updateUserData(user, firstname, lastname, email);
+        })
+        .catch((error)=>{
+          alert(error.message);
+        });
+      }else{
+        alert("Passwords don't match");
+      }
+    }else{
+      alert("Please fill out the form completely!!");
+    }
   
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential)=>{
-      const user = userCredential.user;
-      createUserShopBag(user);
-      updateUserData(user, firstname, lastname, email);
-      
-    })
-    .catch((error)=>{
-      alert(error.message);
-    });
+    
 
     
 });
