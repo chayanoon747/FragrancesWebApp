@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #14213D;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    max-width: 400px;
+    color: #ECF0F1;
+    text-align: center;
+}
+
+.checkmark {
+    font-size: 60px;
+    color: #E67E22;
+}
+
+h1 {
+    color: #E67E22;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #E67E22;
+}
+
+.continue-page {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+}
