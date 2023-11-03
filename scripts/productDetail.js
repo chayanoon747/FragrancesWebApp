@@ -98,15 +98,20 @@ addButtons.forEach(button => {
     
                 // อัปเดต itemList ในเอกสาร shopbagDoc
                 await updateDoc(shopbagDocRef, { itemList });
-    
+
                 console.log('อัปเดตข้อมูลเอกสาร shopbags สำเร็จ');
+                window.location.href = `./shopBag.html?uid=${userUID}`;
             } else {
                 console.error('ไม่พบเอกสาร shopbags');
             }
         } catch (error) {
             console.error('เกิดข้อผิดพลาดในการอัปเดตข้อมูล: ', error);
         }
+        
     });
 });
+
+
+
 
  
