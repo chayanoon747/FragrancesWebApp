@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragrances Web App</title>
+    <link rel="stylesheet" href="../styles/checkout.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+    <script src="../scripts/header.js"></script>
+    <script type="module" src="../scripts/checkout.js"></script>
+</head>
+<body>
+    <header>
+        <script>
+            fetchAndGetData();
+        </script>
+    </header>
+
+    <div class="tag-menu">
+        <p>Home > Checkout</p>
+    </div>
+
+    <div class="text-content">
+        <h3>Checkout</h3>
+    </div>
+
+    <div class="content">
+        <table class="table-content">
+            <tr>
+                <th>Product Detail</th>
+                <th>Quantity</th>
+                <th class="table-price">Price</th>
+                <th class="table-total">Total</th>
+                <th class="table-remove">Remove</th>
+            </tr>
+            <!-- structure
+            <tr>
+                <td class="td-product">
+                    <img src="https://cdn.discordapp.com/attachments/1161997759688224868/1161999598798245998/ADP57042-75ML.png" alt="Product 1">
+                    ProductProduct
+                </td>
+                <td class="td-quantity">
+                    <div class="quantity">
+                        <button>-</button>
+                        <input type="text" value="1">
+                        <button>+</button>
+                    </div>
+                </td>
+                <td class="td-price">$10.00</td>
+                <td class="td-total">$10.00</td>
+            </tr>
+            -->
+            
+            <!-- Add more rows for additional products -->
+        </table>
+        <div class="summary-order">
+            <h4>Order Summary</h4>
+            <table class="summary-table">
+                <tr>
+                    <td class="title-order">Subtotal</td>
+                    <td class="subtotal cost">Loading...</td>
+                </tr>
+                <tr>
+                    <td class="title-order">Shipping cost</td>
+                    <td class="shipping-cost cost">Loading...</td>
+                </tr>
+                <tr>
+                    <td class="title-order">Total</td>
+                    <td class="cost total">Loading...</td>
+                </tr>
+            </table>
+            <button class="checkout-button" id="button4">CHECKOUT</button>
+        </div>
+    </div>
+    
+    <!--
+    <div class="content">
+        <table class="table-content">
+            <tr>
+                <td colspan="2">
+                    <h4>Payment Method</h4>
+                    <label for="cardPayment">
+                        <input type="radio" id="cardPayment" name="paymentMethod" value="card">
+                        <span class="radio-button"></span> Debit or Credit Card
+                        <img src="../assets/visa.png" alt="Visa" class="mini-icon">
+                        <img src="../assets/mastercard.png" alt="MasterCard" class="mini-icon">
+                    </label>
+                    <br>
+                    <label for="paypalPayment">
+                        <input type="radio" id="paypalPayment" name="paymentMethod" value="paypal">
+                        <span class="radio-button"></span> PayPal
+                        <img src="../assets/paypal.png" alt="PayPal" class="mini-icon">
+                    </label>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="submit-button" id="submitPaymentButton" onclick="showPaymentForm()">Submit</button>
+
+                </td>
+            </tr>
+            
+        </table>
+    
+        <div class="summary-order">
+            <h4>Order Summary</h4>
+            <table class="summary-table">
+                <tr>
+                    <td class="title-order">Subtotal</td>
+                    <td class="subtotal cost">Loading...</td>
+                </tr>
+                <tr>
+                    <td class="title-order">Shipping cost</td>
+                    <td class="shipping-cost cost">Loading...</td>
+                </tr>
+                <tr>
+                    <td class="title-order">Total</td>
+                    <td class="cost total">Loading...</td>
+                </tr>
+            </table>
+            <button class="checkout-button" id="button4">CHECKOUT</button>
+        </div>
+    </div>
+    -->
+
+    <div id="paymentForm" class="payment-form">
+        <div class="payment-content">
+            <h4>Payment Information</h4>
+            <form id="paymentDetailsForm">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number" required>
+                
+                <label for="expirationDate">Expiration Date:</label>
+                <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required>
+                
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Enter CVV" required>
+                
+                <button class="submit-button" id="confirmPaymentButton">Confirm Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <script>
+            fetch('../components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector('footer').innerHTML = data;
+                });
+        </script>
+    </footer>
+    <script>
+        function showContent(menuId) {
+            // ซ่อนเนื้อหาของทุกเมนูก่อน
+            const allContent = document.querySelectorAll('.content div');
+            allContent.forEach((content) => {
+                content.classList.remove('active');
+            });
+
+            // แสดงเนื้อหาของเมนูที่ถูกเลือก
+            const selectedContent = document.getElementById(menuId);
+            selectedContent.classList.add('active');
+        }
+    </script>
+</body>
+</html>
