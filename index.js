@@ -11,7 +11,9 @@ signIn.addEventListener('click',(e)=>{
       const user = userCredential.user;
       console.log(user.email, user.uid);
       alert('Sign in successfully');
-      window.location.href = `./pages/home.html?uid=${user.uid}`;
+      // บันทึกข้อมูลใน Local Storage
+      localStorage.setItem('uid', user.uid);
+      window.location.href = `./pages/home.html`;
     })
     .catch((error)=>{
       alert(error.message);
