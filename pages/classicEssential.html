@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Fragrances Web App</title>
+        <link rel="stylesheet" href="../styles/classicEssential.css">
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/footer.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zen+Antique+Soft">
+        <script src="../scripts/header.js"></script>
+    </head>
+    <body>
+        <header>
+            <script>
+                fetchAndGetData()
+            </script>
+        </header>
+
+        <div class="tag-menu">
+            <p>FRAGRANCES > our house</p>
+        </div>
+
+        <div class="banner">
+            <img width="100%" height="100%" src="https://cdn.discordapp.com/attachments/951838870272606259/1168856832559820850/64b8ef6173b462002c730af8.jpg.webp?ex=655349c1&is=6540d4c1&hm=d4cd67c60fb979201f095d032a6a8dfd84d90d75f790f6fa310d386954689cea&" alt="collection-image" id="banner-image">
+            <div class="centered-text">
+                <p class="orange-text">ACQUA DI PARMA</p>
+                <p class="unique-text">presents</p>
+                <p class="orange-text">LILY OF THE VALLEY</p>
+                <p>In our new olfactory creation, the signature head notes of golden Italian <br> citrus awaken a vibrant zest for life and a feeling of pureness; as the <br> fragrance settles, the sophisticated and precious heart notes of red saffron <br> emerge, in an unexpected juxtaposition that unfolds over time</p>
+                <img width="35%" height="35%" src="https://cdn.discordapp.com/attachments/951838870272606259/1168943366134825072/ADPADP081328-100ML.png?ex=65539a58&is=65412558&hm=32646205c49f632234e26a152f7a43d1c13285c14579dc7df3884393099cbf5b&" alt="image-below-paragraph">
+                <div class="banner-text">Shop Now</div>
+                <img width="90%" height="90%" src="https://cdn.discordapp.com/attachments/951838870272606259/1168936930650632244/64b7ef0973b462002c730a93.png?ex=6553945a&is=65411f5a&hm=d0caf7686993e38c09c64dd8c0e3f6e42165fe14408008fd90a74228e8a1c795&" alt="image-below-paragraph">
+                <p class="intenseOrange-text">THE ESSENCE OF AN INTIMATE SOPHISTICATION <br> THAT UNFOLDS OVER TIME</p>
+                <div class="extra-content">
+                    <img width="42.5%" height="100%" src="https://cdn.discordapp.com/attachments/951838870272606259/1168937005640585329/image.png?ex=6553946b&is=65411f6b&hm=1f15cfe791e405bcbbeef7a1ac776c75225e75c9825c8a1cdf5ec40875b362ad&" alt="image-below-paragraph">
+                    <img width="45%" height="100%" src="https://cdn.discordapp.com/attachments/951838870272606259/1168856975602372679/AcquadiParma_08_lily_of_the_valley_srgb.png?ex=655349e3&is=6540d4e3&hm=4ea60392ec23a0f90241cc257814bb4e5698bebee43a85b7ee07fd3d91b741e1&" alt="image-below-paragraph">
+                    <p class="unique-text">A masterful metaphor of the traditional <br>
+                        Venetian terrazzo’s compositional technique,<br>
+                        where radiant stones and precious marbles<br>
+                        are skilfully merged to create a surprising<br>
+                        experience of harmonious beauty and<br>
+                        connoisseur luxury</p>
+                    <img width="45%" height="100%" src="https://cdn.discordapp.com/attachments/951838870272606259/1168936990696284262/image.png?ex=65539468&is=65411f68&hm=63b63bb9d8f304eca71704af769da7c08fb7676ca31e7a20c9b1c526fd4ed95f&" alt="image-below-paragraph">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <script>
+                fetch('../components/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('footer').innerHTML = data;
+                    });
+            </script>
+        </footer>
+        <script type="module" src="../scripts/classicEssential.js"></script>
+    </body>
+
+    
+</html>
