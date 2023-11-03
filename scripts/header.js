@@ -9,6 +9,9 @@ const fetchAndGetData = ()=>{
         handleIconShopBag();
         handleMenuCollections();
         handleMenuFragrances();
+        handleMenuOurHouse();
+        handleMenuBoutiques();
+        handleMenuClassicEssential();
     });
 }
 
@@ -91,6 +94,48 @@ const handleMenuFragrances = ()=>{
             if (uid) {
                 const menuFragrancesURL = `../pages/home.html?uid=${uid}`;
                     window.location.href = menuFragrancesURL;
+            }
+        });
+    }
+}
+
+const handleMenuOurHouse = ()=>{
+    const menuOurHouse = document.querySelector('.menu-ourHouse');
+    if (menuOurHouse) {
+        menuOurHouse.addEventListener('click', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const uid = urlParams.get('uid');
+            if (uid) {
+                const menuOurHouseURL = `../pages/ourHouse.html?uid=${uid}`;
+                    window.location.href = menuOurHouseURL;
+            }
+        });
+    }
+}
+
+const handleMenuBoutiques = ()=>{
+    const menuBoutiques = document.querySelector('.menu-boutiques');
+    if (menuBoutiques) {
+        menuBoutiques.addEventListener('click', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const uid = urlParams.get('uid');
+            if (uid) {
+                const menuBoutiquesURL = `../pages/boutiques.html?uid=${uid}`;
+                    window.location.href = menuBoutiquesURL;
+            }
+        });
+    }
+}
+
+const handleMenuClassicEssential = ()=>{
+    const menuClassicEssential = document.querySelector('.menu-classicEssential');
+    if (menuClassicEssential) {
+        menuClassicEssential.addEventListener('click', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const uid = urlParams.get('uid');
+            if (uid) {
+                const menuClassicEssentialURL = `../pages/classicEssential.html?uid=${uid}`;
+                    window.location.href = menuClassicEssentialURL;
             }
         });
     }
