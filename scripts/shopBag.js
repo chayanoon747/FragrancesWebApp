@@ -9,6 +9,10 @@ const db = getFirestore(app)
 const shopbagsColl = collection(db, "shopbags")
 const productsColl = collection(db, "products")
 
+document.querySelector('.checkout-button').addEventListener('click', function() {
+    window.location.href = `./checkout.html?uid=${userUID}`;
+});
+
 const findDoc = async()=>{
     const qry = query(shopbagsColl, where("userUID", "==", userUID));
     const querySnapshot = await getDocs(qry);
@@ -266,6 +270,7 @@ const changeQuantity = async(productUID, quantity)=>{
         console.error('เกิดข้อผิดพลาดในการ change quantity product: ', error);
       }
 }
+
 
 
 
