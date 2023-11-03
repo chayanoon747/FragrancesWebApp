@@ -9,7 +9,7 @@
 }
 
 .header-content-a {
-    padding-left: 45%;
+    padding-left: 37.7%;
     text-decoration: none;
     color: #14213D;
     cursor: pointer;
@@ -21,14 +21,14 @@
 
 .header-content a p {
     font-family: 'Zen Antique Soft', serif;
-    font-size: 30px;
+    font-size: 32px;
     
 }
 
 .icon-div-header {
     display: flex;
     flex-direction: row;
-    padding-left: 35%;
+    padding-left: 28%;
     
 }
 
@@ -54,7 +54,7 @@
     align-items: center;
     height: 40px;
     font-family: 'Zen Antique Soft', serif;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid rgba(75, 75, 75, 0.75);
     cursor: pointer;
 }
 
@@ -66,5 +66,5 @@
 }
 
 .menu a:hover {
-    color: #007BFF;
+    color: #14213D;
 }
