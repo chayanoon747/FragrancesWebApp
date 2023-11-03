@@ -269,6 +269,39 @@
     font-size: 16px;
 }
 
+table {
+    
+    margin: 5%;
+    padding: 0;
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+th, td {
+    padding: 0 0 1% 100px;
+}
+
+th {
+    margin: 0;
+    color: #aaa;
+    padding-right: 50px;
+}
+
+/* ปรับขนาดของรายการสินค้าทั้งหมดในตาราง */
+.fetch-table td {
+    font-size: 14px; 
+    padding-left: 5%; 
+    text-align: center;
+}
+
+/* ปรับขนาดรูปภาพสินค้า */
+.fetch-table img {
+    max-width: 150px; 
+    max-height: 150px;
+}
+
+
 
 
 

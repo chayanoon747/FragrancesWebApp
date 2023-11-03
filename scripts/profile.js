@@ -1,6 +1,6 @@
 import { auth, app } from '../firebase/connect.js'
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import {getFirestore, collection, doc, getDoc, setDoc, updateDoc} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+import {getFirestore, collection, doc, getDoc, setDoc, updateDoc, query, getDocs, where} from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
 
 const urlParams = new URLSearchParams(window.location.search);
 const userUID = urlParams.get('uid');
@@ -8,6 +8,8 @@ console.log(`uid: ${userUID}`);
 
 const db = getFirestore(app)
 const usersColl = collection(db, "users")
+const ordersColl = collection(db, "orders")
+const productsColl = collection(db, "products")
 
 const profileData = async(userUID)=>{
     try {
@@ -197,3 +199,150 @@ const handleUserAddress = async(userUID)=>{
 }
 
 handleUserAddress(userUID);
+
+const findDoc = async()=>{
+    const qry = query(ordersColl, where("userUID", "==", userUID));
+    const querySnapshot = await getDocs(qry);
+    const arrayOrdersDoc = [];
+
+    querySnapshot.forEach((doc) => {
+        const documentId = doc.id;
+        arrayOrdersDoc.push(documentId);
+    });
+
+    if (arrayOrdersDoc.length > 0) {
+        return arrayOrdersDoc;
+    } else {
+        console.log("ไม่พบเอกสารที่ตรงเงื่อนไข");
+        return null; 
+    }
+}
+
+const getDataOrders = async()=>{
+    let orderNumber = 0;
+    const arrayOrdersDoc = await findDoc();
+
+    for (const docId of arrayOrdersDoc) {
+        const ordersDocRef = doc(ordersColl, docId);
+        try{
+            const ordersDocSnap = await getDoc(ordersDocRef);
+            if(ordersDocSnap.exists()) {
+                const ordersData = ordersDocSnap.data();
+                const itemList = ordersData.itemList;
+    
+                const ordersArray = [];
+    
+                for (const item of itemList) {
+                    const productUID = item.productUID;
+                    const quantity = item.quantity;
+            
+                    // เรียกฟังก์ชัน getDataProducts เพื่อดึงข้อมูลสินค้า
+                    const productData = await getDataProducts(productUID);
+    
+                    // สร้างออบเจ็กต์ใหม่เพื่อใช้เก็บ quantity และ productData
+                    const productInfo = {
+                        quantity: quantity,
+                        productData: productData,
+                        productUID: productUID
+                    };
+    
+                    // นำข้อมูลสินค้าลงในอาร์เรย์
+                    ordersArray.push(productInfo);
+                  }
+                  console.log(ordersArray);
+
+                    // สร้างตารางสำหรับแสดงข้อมูลใน ordersArray
+                    orderNumber+=1;
+                    const table = createTable(ordersArray, orderNumber);
+                    // หา div ที่มีคลาส 'fetchtable'
+                    const fetchTableNav = document.querySelector('.fetch-table');
+
+                    // เพิ่มตารางลงใน div
+                    fetchTableNav.appendChild(table);
+            }else{
+                console.error('ไม่พบเอกสาร orders');
+            }
+    
+        }catch(error){
+            console.error('เกิดข้อผิดพลาดในการอัปเดตข้อมูล: ', error);
+        }
+    }
+    
+}
+
+getDataOrders();
+
+const getDataProducts = async(productUID)=>{
+    try {
+        
+        const productRef = doc(productsColl, productUID);
+    
+        const productSnapshot = await getDoc(productRef);
+    
+        if (productSnapshot.exists) {
+            const productData = productSnapshot.data();
+            return productData;
+            
+        } else {
+            // Handle the case when the product is not found
+            console.error('Product not found: ');
+        }
+    } catch (error) {
+        console.error('Error get product data:', error);
+    }
+}
+
+// ฟังก์ชันสร้างตารางแสดงข้อมูล
+function createTable(ordersArray, orderNumber) {
+    let e = 0;
+    const table = document.createElement('table');
+    const thead = document.createElement('thead');
+    const tbody = document.createElement('tbody');
+
+    // สร้างหัวตาราง
+    const headerRow = thead.insertRow();
+    const headers = ['Order Number', 'Product', 'Quantity', 'Price', 'Total'];
+    headers.forEach((headerText) => {
+        const th = document.createElement('th');
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+
+    // เพิ่มข้อมูลในตาราง
+    ordersArray.forEach((order) => {
+        const tr = tbody.insertRow();
+        const { productData, quantity } = order;
+
+        // เพิ่มหัวข้อ Order Number
+        if(e == 0){
+            const tdOrderNumber = tr.insertCell();
+            tdOrderNumber.textContent = orderNumber;
+            e = 1;
+        }else{
+            const tdOrderNumber = tr.insertCell();
+            tdOrderNumber.textContent = "";
+        }
+        
+
+        const tdProduct = tr.insertCell();
+        const img = document.createElement('img');
+        img.src = productData.photoURL;
+        img.alt = productData.name;
+        tdProduct.appendChild(img);
+        tdProduct.appendChild(document.createTextNode(productData.name));
+
+        const tdQuantity = tr.insertCell();
+        tdQuantity.textContent = quantity;
+
+        const tdPrice = tr.insertCell();
+        tdPrice.textContent = `$${productData.price}`;
+
+        const tdTotal = tr.insertCell();
+        tdTotal.textContent = `$${quantity * productData.price}`;
+    });
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+
+    return table;
+}
